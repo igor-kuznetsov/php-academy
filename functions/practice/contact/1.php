@@ -6,11 +6,14 @@
 <body>
 <section>
     <?php
+    if (! empty($_POST['text'])) {
+        echo $_POST['text'];
+    }
     ?>
 </section>
 <section>
     <form method="post" action="">
-        <textarea name="text"></textarea><br>
+        <textarea name="text" title="text"></textarea><br>
         <p><input type="submit"></p>
     </form>
 </section>
