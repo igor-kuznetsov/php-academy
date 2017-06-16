@@ -1,6 +1,6 @@
 <?php
 
-define('CURRENT_DIR', empty($_GET['dir']) ? __DIR__ : realpath($_GET['dir']));
+define('CURRENT_DIR', empty($_GET['dir']) ? __DIR__ : $_GET['dir']);
 
 /**
  * @param string $relative_path
