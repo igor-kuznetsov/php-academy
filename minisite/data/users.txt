@@ -1,1 +1,1 @@
-a:1:{s:15:"admin@admin.com";a:3:{s:5:"email";s:15:"admin@admin.com";s:8:"password";s:32:"ecfc0783dad694ab7823ae13b3d59cb9";s:5:"color";s:5:"black";}}
+a:2:{s:15:"admin@admin.com";a:3:{s:5:"email";s:15:"admin@admin.com";s:8:"password";s:32:"ecfc0783dad694ab7823ae13b3d59cb9";s:5:"color";s:4:"blue";}s:12:"aaaa@aaa.aaa";a:3:{s:5:"email";s:12:"aaaa@aaa.aaa";s:8:"password";s:32:"9c622f4af5f2a15618661fdc35f074b3";s:5:"color";s:5:"black";}}

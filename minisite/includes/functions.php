@@ -67,6 +67,9 @@ function process_login():array
             } else {
                 log_in($user);
                 set_message('You have been logged in.');
+//                set_message('Message #1');
+//                set_message('Message #2');
+//                set_message('Message #3');
 
                 if (empty($_SESSION['login_redirect'])) {
                     header('Location: index.php');
@@ -91,6 +94,9 @@ function process_register():array
     $errors = [];
 
     if (isset($_POST['register'])) {
+//        print "<pre>";
+//        print_r($_POST);
+//        print "</pre>";die;
         $post = $_POST['register'];
 
         if (empty($post['email'])) {
@@ -170,17 +176,21 @@ function get_all_users():array
     } else {
         $users = unserialize($content);
     }
+//    print "<pre>";
+//    print_r($users);
+//    print "</pre>";
+//    die;
 
     return $users;
 }
 
 /**
- * @param string $email
+ * @param string $user_email
  * @return bool
  */
-function is_user_exist(string $email):bool
+function is_user_exist(string $user_email):bool
 {
-    return isset(get_all_users()[$email]);
+    return isset(get_all_users()[$user_email]);
 }
 
 /**
@@ -287,6 +297,7 @@ function get_user(string $email = ''):array
 {
     if (empty($email)) {
         $email = $_SESSION['user']['email'];
+        //return $_SESSION['user'];
     }
 
     $users = get_all_users();
@@ -310,6 +321,7 @@ function is_page_exists(string $page_name):bool
 function render_error(array $errors, string $field)
 {
     if (isset($errors[$field])) {
+        //echo "<span style='color:red;font-style:italic;'>$errors[$field]</span>";
         printf('<span style="color:red;font-style:italic;">%s</span>', $errors[$field]);
     }
 }
@@ -330,6 +342,8 @@ function render_page(string $page_name)
  */
 function pages_path(string $file):string
 {
+    //return __DIR__ . '/../pages/'.$file;
+
     return implode(DIRECTORY_SEPARATOR, [
         __DIR__,
         '..',
