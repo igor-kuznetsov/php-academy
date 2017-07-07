@@ -12,4 +12,7 @@ SELECT
   SUM(`amount`)
 FROM `payments`
 GROUP BY `paymentDate`
-ORDER BY `year`, `month`, `day`;
+ORDER BY
+  `year`,
+  `month`,
+  `day`;

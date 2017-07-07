@@ -26,5 +26,6 @@ FROM `customers` AS `c`
   JOIN `payments` AS `p`
     ON `p`.`customerNumber` = `c`.`customerNumber`
 WHERE `c`.`customerNumber` = 121
-GROUP BY YEAR(`p`.`paymentDate`),
+GROUP BY
+  YEAR(`p`.`paymentDate`),
   MONTH(`p`.`paymentDate`);
