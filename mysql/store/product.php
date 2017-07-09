@@ -28,7 +28,7 @@ if (empty($product)) {
     <p class="category"><?php echo $product['category']; ?></p>
     <p class="price">$<?php echo $product['price']; ?></p>
     <p class="description"><?php echo $product['description']; ?></p>
-    <p><a href="cart.php?id=<?php echo $product['id']; ?>">add to cart</a></p>
+    <p><a href="cart.php?id=<?php echo $product['id']; ?>&action=add">add to cart</a></p>
 </section>
 <?php include 'includes/footer.php'; ?>
 </body>

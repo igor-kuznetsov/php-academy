@@ -30,7 +30,7 @@ if (empty($_GET['page'])) {
                     <p><?php echo $product['category']; ?></p>
                     <p>$<?php echo $product['price']; ?></p>
                     <p>
-                        <a href="cart.php?id=<?php echo $product['id']; ?>">add to cart</a>
+                        <a href="cart.php?id=<?php echo $product['id']; ?>&action=add">add to cart</a>
                     </p>
                 </li>
             <?php endforeach; ?>

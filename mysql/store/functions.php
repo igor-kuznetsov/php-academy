@@ -1,15 +1,8 @@
 <?php
 
+require 'config.php';
+
 session_start();
-
-define('BASE_URL', 'http://phpacademy.loc/mysql/store');
-
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'ministore');
-define('DB_USER', 'root');
-define('DB_PASS', 'MD56kq');
-
-define('ITEMS_PER_PAGE', 2);
 
 /**
  * @param string $path
@@ -516,4 +509,80 @@ function get_category(int $id):array
     }
 
     return $category;
+}
+
+/**
+ * @return array
+ */
+function get_cart():array
+{
+    return empty($_SESSION[CART]) ? [] : $_SESSION[CART];
+}
+
+/**
+ * @param int $id
+ */
+function add_to_cart(int $id)
+{
+    $products = get_cart();
+
+    if (! in_array($id, $products)) {
+        $products[] = $id;
+    }
+
+    $_SESSION[CART] = $products;
+}
+
+/**
+ * @param int $id
+ */
+function remove_from_cart(int $id)
+{
+    $products = get_cart();
+
+    $key = array_search($id, $products);
+    if ($key !== false) {
+        unset($products[$key]);
+    }
+
+    $_SESSION[CART] = $products;
+}
+
+/**
+ * @return void
+ */
+function clear_cart()
+{
+    if (isset($_SESSION[CART])) {
+        unset($_SESSION[CART]);
+    }
+}
+
+/**
+ * @return int
+ */
+function get_cart_count():int
+{
+    return count(get_cart());
+}
+
+/**
+ * @return mixed
+ */
+function get_cart_products():array
+{
+    $cart = get_cart();
+    if (empty($cart)) {
+        $products = [];
+    } else {
+        $ids = implode(',', $cart);
+        $query = "SELECT `p`.*, `c`.`name` AS `category`
+            FROM `products` AS `p`
+            JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+            WHERE `p`.`id` IN ($ids);";
+
+        $products = db_select($query);
+    }
+
+    return $products;
 }
