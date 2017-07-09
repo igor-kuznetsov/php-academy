@@ -3,4 +3,6 @@ SELECT
   YEAR(`paymentDate`) as `year`,
   MAX(`amount`)
 FROM `payments`
-GROUP BY `year`, `month`;
+GROUP BY
+  `year`,
+  `month`;
