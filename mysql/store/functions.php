@@ -189,9 +189,13 @@ function db_select(string $query):array
     }
 
     if ($query_result = mysqli_query($connection, $query)) {
+        // option #1
         while ($row = mysqli_fetch_assoc($query_result)) {
             $result[] = $row;
         }
+
+        // option #2 (doesn't work for us)
+        //$result = mysqli_fetch_all($query_result);
 
         mysqli_free_result($query_result);
     }
@@ -567,7 +571,7 @@ function get_cart_count():int
 }
 
 /**
- * @return mixed
+ * @return array
  */
 function get_cart_products():array
 {
@@ -585,4 +589,20 @@ function get_cart_products():array
     }
 
     return $products;
+}
+
+/**
+ * @param mixed $value
+ */
+function debug($value)
+{
+    echo "<pre>";
+
+    if (is_array($value)) {
+        print_r($value);
+    } else {
+        var_dump($value);
+    }
+
+    echo "</pre>";
 }
