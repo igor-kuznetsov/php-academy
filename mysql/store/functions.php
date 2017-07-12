@@ -117,7 +117,7 @@ function render_error(array $errors, string $field)
  * @param int $page
  * @return array
  */
-function get_products($page):array
+function get_products(int $page):array
 {
     $offset = ($page - 1) * ITEMS_PER_PAGE;
     $limit = ITEMS_PER_PAGE;
@@ -127,7 +127,9 @@ function get_products($page):array
               JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
               LIMIT $offset,$limit;";
 
-    return db_select($query);
+    $products = db_select($query);
+
+    return $products;
 }
 
 /**
@@ -148,7 +150,7 @@ function get_all_products():array
 function get_products_pagination():array
 {
     $links = [];
-    $products_count = db_select("SELECT COUNT(`id`) AS `count` FROM `products`;")[0]['count'];
+    $products_count = db_select("SELECT COUNT(`id`) AS `products_count` FROM `products`;")[0]['products_count'];
 
     if ($products_count > ITEMS_PER_PAGE) {
         $pages = ceil($products_count / ITEMS_PER_PAGE);

@@ -35,7 +35,7 @@ if (empty($_GET['page'])) {
                 </li>
             <?php endforeach; ?>
             <?php $links = get_products_pagination(); ?>
-            <?php if (!empty($links)) : ?>
+            <?php if (! empty($links)) : ?>
                 <li>
                     <?php foreach ($links as $link) : ?>
                         <?php if ($page == $link['name']) : ?>
