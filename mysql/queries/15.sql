@@ -76,3 +76,24 @@ WHERE
       DATE_FORMAT(`o2`.`orderDate`, '%Y%m'),
       DATE_FORMAT(`o1`.`orderDate`, '%Y%m')
   ) > 3;
+
+
+SELECT
+  `o1`.`customerNumber` AS `customer`
+FROM `orders` AS `o1`, `orders` AS `o2`
+WHERE
+  `o1`.`customerNumber` = `o2`.`customerNumber`
+  AND `o1`.`orderDate` < `o2`.`orderDate`
+  AND (
+        SELECT COUNT(*)
+        FROM `orders` AS `o3`
+        WHERE
+          `o3`.`orderDate` > `o1`.`orderDate`
+          AND `o3`.`orderDate` < `o2`.`orderDate`
+          AND `o3`.`customerNumber` = `o1`.`customerNumber`
+      ) = 0
+  AND PERIOD_DIFF(
+          DATE_FORMAT(`o2`.`orderDate`, '%Y%m'),
+          DATE_FORMAT(`o1`.`orderDate`, '%Y%m')
+      ) > 3
+GROUP BY `o1`.`customerNumber`;
