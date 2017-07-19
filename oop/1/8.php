@@ -5,8 +5,8 @@
  */
 class TestMagic
 {
-    public $test = 'test';
-    public $magic = 'magic';
+    public $test = 'test1111';
+    public $magic = 'magic22222';
     private $methods;
 
     function __clone()
@@ -28,7 +28,8 @@ class TestMagic
 
     function __toString()
     {
-        return 'object converted to this string';
+        //return 'object converted to this string';
+        return serialize($this);
     }
 
     function __invoke($someArgument, $anotherArgument)
@@ -56,7 +57,7 @@ $serializedObj = serialize($obj); // __sleep
 var_dump($serializedObj);
 echo '<hr>';
 
-unserialize($serializedObj); // __wakeup
+$obj2 = unserialize($serializedObj); // __wakeup
 
 echo $obj; // __toString
 echo '<hr>';

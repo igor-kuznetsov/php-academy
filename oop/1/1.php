@@ -28,4 +28,4 @@ var_dump($author1 instanceof Author);
 
 echo "<hr>";
 
-var_dump($book1 instanceof Article);
+var_dump($book1 instanceof Author);

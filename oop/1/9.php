@@ -18,6 +18,7 @@ TestStaticProperties::$x = 100;
 echo TestStaticProperties::$x;
 echo '<hr>';
 
+//TestStaticProperties::getX();
 $obj = new TestStaticProperties();
 echo $obj->getX();
 echo '<hr>';
@@ -36,10 +37,17 @@ class StaticCounter
     {
         ++StaticCounter::$counter;
     }
+
+    public function getCounter()
+    {
+        return StaticCounter::$counter;
+    }
 }
 
 $obj1 = new StaticCounter();
+echo $obj1->getCounter();
+echo '<hr>';
 $obj2 = new StaticCounter();
 $obj3 = new StaticCounter();
 
-//echo StaticCounter::$counter;
+echo $obj1->getCounter();

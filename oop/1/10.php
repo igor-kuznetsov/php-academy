@@ -1,5 +1,10 @@
 <?php
 
+define('TEST_CONST', 10000);
+
+/**
+ * Class ClassConstants
+ */
 class ClassConstants
 {
     const ALPHA = 'a';
@@ -15,6 +20,11 @@ class ClassConstants
     {
         echo ClassConstants::BETA;
     }
+
+    public static function getTestConst()
+    {
+        echo TEST_CONST;
+    }
 }
 
 echo ClassConstants::ALPHA;
@@ -27,9 +37,10 @@ echo '<hr>';
 ClassConstants::outputAlpha();
 echo '<hr>';
 
-$obj = new ClassConstants();
 $obj->outputBeta();
 echo '<hr>';
+
+ClassConstants::getTestConst();
 
 //$obj::ALPHA = 10;
 //ClassConstants::ALPHA = 20;

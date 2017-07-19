@@ -8,7 +8,7 @@ class TestStaticParent
     public $name;
     public $value;
 
-    function __construct()
+    public function __construct()
     {
         $this->name =  __CLASS__;
         $this->value = 200;

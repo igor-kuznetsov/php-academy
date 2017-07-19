@@ -8,6 +8,7 @@ class TestStaticSelf
     const HASH = 'sdFt45ure4sTGhrSFDs6ccx';
 
     public static $name = 'Test Name';
+    public $test;
 
     public static function getName()
     {

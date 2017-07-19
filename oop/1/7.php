@@ -21,6 +21,7 @@ class TestDestructor
 
 $obj1 = new TestDestructor('obj1');
 $obj2 = new TestDestructor('obj2');
+//$obj = new TestDestructor();
 
 echo 'some text goes here....';
 echo '<hr>';

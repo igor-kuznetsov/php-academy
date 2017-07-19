@@ -12,8 +12,8 @@ class TestLateStaticParent
 
     public static function test()
     {
-        self::who();
-        //static::who();
+        //self::who();
+        static::who();
     }
 }
 

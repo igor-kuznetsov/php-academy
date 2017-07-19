@@ -17,7 +17,6 @@ class TestStaticMethods
         $this->value = $value;
     }
 
-
     public static function outputClassName()
     {
         echo __CLASS__;

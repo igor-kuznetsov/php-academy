@@ -6,7 +6,7 @@
 class User
 {
     public $email;
-    public $password;
+    protected $password;
 
     public function login()
     {
@@ -23,6 +23,16 @@ class Admin extends User
     {
         echo 'manage users';
     }
+
+    public function setPassword($value)
+    {
+        $this->password = $value;
+    }
+
+    public function login()
+    {
+        echo 'admin login';
+    }
 }
 
 /**
@@ -38,7 +48,7 @@ class Writer extends User
 
 $obj = new Admin();
 $obj->email = 'test@mail.com';
-$obj->password = 'pswd123';
+$obj->setPassword('pswd123');
 
 print "<pre>";
 print_r($obj);
@@ -52,3 +62,5 @@ $obj->login();
 
 echo "<hr>";
 $obj->manageArticles();
+
+echo '---------------------';
