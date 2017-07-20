@@ -6,22 +6,22 @@
 class TestOverloadingProperties
 {
     public $existing = 5;
-    private $data;
+    private $data = [];
     private $hidden = 22;
 
-    function __get($name)
-    {
-        if (array_key_exists($name, $this->data)) {
-            return $this->data[$name];
-        }
-
-        return null;
-    }
-
-    function __set($name, $value)
-    {
-        $this->data[$name] = $value;
-    }
+//    function __get($name)
+//    {
+//        if (array_key_exists($name, $this->data)) {
+//            return $this->data[$name];
+//        }
+//
+//        return null;
+//    }
+//
+//    function __set($name, $value)
+//    {
+//        $this->data[$name] = $value;
+//    }
 
 //    function __isset($name)
 //    {
