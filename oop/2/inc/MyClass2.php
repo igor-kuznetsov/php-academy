@@ -1,9 +1,12 @@
 <?php
 
+namespace PhpAcademy\Oop\Lesson2\Inc;
+
 /**
- * Class MyClass1
+ * Class MyClass2
+ * @package PhpAcademy\Oop\Lesson2\Inc
  */
-class MyClass1
+class MyClass2
 {
     public function __construct()
     {
