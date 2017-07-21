@@ -43,8 +43,13 @@ trait ChatB
 class User
 {
     use ChatA, ChatB {
-        ChatB::smallTalk insteadof ChatA;
-        ChatB::bigTalk as bigTalkB;
-        ChatA::bigTalk insteadof ChatB;
+        ChatB::smallTalk insteadof ChatA; // b
+        ChatA::bigTalk insteadof ChatB; // A
+        ChatB::bigTalk as bigTalkB; // B
     }
 }
+
+$obj = new User();
+$obj->smallTalk();
+$obj->bigTalk();
+$obj->bigTalkB();

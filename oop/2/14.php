@@ -49,5 +49,10 @@ $obj->printExclamation();
 
 echo '<hr>';
 
-// TODO: add child class
-// TODO: override printWorld() and printExclamation() methods
+class Child extends MyHelloWorld
+{
+    // TODO: override printHello() method
+}
+
+$child = new Child();
+// TODO: use methods
