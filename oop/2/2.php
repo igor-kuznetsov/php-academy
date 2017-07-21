@@ -17,6 +17,6 @@ class TestOverloadingMethods
 }
 
 $obj = new TestOverloadingMethods();
-$obj->runTest(10, 'string value');
+$obj->runTest(10, 'string value', 56, 67);
 echo '<hr>';
 $obj::runStaticTest(55, 'fgfgfgsdhs');

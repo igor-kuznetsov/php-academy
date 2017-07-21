@@ -1,6 +1,7 @@
 <?php
 
 spl_autoload_register('lib_autoloader');
+
 function lib_autoloader($class_name)
 {
     $path = 'lib' . DIRECTORY_SEPARATOR . $class_name . '.php';
@@ -19,4 +20,4 @@ spl_autoload_register(function ($class_name) {
 $obj1  = new MyClass1();
 $obj2 = new MyClass2();
 $obj3 = new MyLib1();
-$obj4 = new MyLib2();
+$obj4 = new MyLib2();// fatal error

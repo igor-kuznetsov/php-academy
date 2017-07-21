@@ -13,7 +13,6 @@ spl_autoload_register(function ($class_name) {
 
 include "inc" . DIRECTORY_SEPARATOR . "functions.php"; // we cannot autoload simple php file
 
-// TODO: explain FQCN
 use PhpAcademy\Oop\Lesson2\Inc\MyLongNameClass1 as MyClass; // class full import with alias
 use PhpAcademy\Oop\Lesson2\Inc\MyClass2; // class short import
 use PhpAcademy\Oop\Lesson2\Inc\MyInterface; // import interface

@@ -19,4 +19,10 @@ abstract class AbstractChild extends AbstractBase
     }
 }
 
-//TODO: add concrete child class
+class TestConcreteClass2 extends AbstractChild
+{
+    public function someMethod()
+    {
+        // TODO: Implement someMethod() method.
+    }
+}

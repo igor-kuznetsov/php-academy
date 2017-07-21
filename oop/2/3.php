@@ -18,7 +18,7 @@ abstract class TestAbstractClass
     }
 }
 
-$obj1 = new TestAbstractClass();
+//$obj1 = new TestAbstractClass();
 
 /**
  * Class TestConcreteClass

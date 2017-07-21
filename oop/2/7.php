@@ -5,7 +5,7 @@
  */
 interface EmailInterface
 {
-    public function sendEmail();
+    public function sendEmail($x1);
 }
 
 /**
@@ -17,10 +17,25 @@ interface PhoneInterface
 }
 
 /**
+ * Class ParentOperator
+ */
+class ParentOperator
+{
+    //
+}
+
+/**
  * Class Operator
  */
-class Operator implements EmailInterface, PhoneInterface
+class Operator extends ParentOperator implements EmailInterface, PhoneInterface
 {
-    //TODO: implement required methods
-    //TODO: show wrong implementation (signature mismatch)
+    public function sendEmail($x1)
+    {
+        // TODO: Implement sendEmail() method.
+    }
+
+    public function callPhone()
+    {
+        // TODO: Implement callPhone() method.
+    }
 }

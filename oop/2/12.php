@@ -8,8 +8,6 @@ namespace PhpAcademy\Oop\Lesson2\Ex12;
  */
 class MyLib1
 {
-    //TODO: comment out namespace declaration
-    //TODO: add something before namespace declaration
     public static function getNamespace()
     {
         return __NAMESPACE__;

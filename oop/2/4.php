@@ -6,6 +6,11 @@
 abstract class Figure
 {
     abstract public function calculateArea();
+
+    public function test()
+    {
+        //jgjfjfdjg
+    }
 }
 
 /**
@@ -35,4 +40,13 @@ class Rectangle extends Figure
     }
 }
 
-//TODO: add class Circle
+/**
+ * Class Circle
+ */
+class Circle extends Figure
+{
+    public function calculateArea()
+    {
+        // TODO: Implement calculateArea() method.
+    }
+}

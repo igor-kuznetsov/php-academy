@@ -34,7 +34,10 @@ class MyHelloWorld
 {
     use Hello, World;
 
-    // TODO: override printHello() method
+    public function printHello()
+    {
+        echo 'HELLO';
+    }
 
     public function printExclamation()
     {
@@ -51,8 +54,13 @@ echo '<hr>';
 
 class Child extends MyHelloWorld
 {
-    // TODO: override printHello() method
+    public function printHello()
+    {
+        echo '+++';
+    }
 }
 
 $child = new Child();
-// TODO: use methods
+$child->printHello();
+$child->printWorld();
+$child->printExclamation();

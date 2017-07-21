@@ -18,5 +18,5 @@ final class TestFinalClass
  */
 class TestFinalClassChild extends TestFinalClass
 {
-    //
+    //fatal error
 }
