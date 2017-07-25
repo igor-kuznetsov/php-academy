@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpAcademy\Oop\Lesson2\Ex22;
+namespace PhpAcademy\Oop\Lesson3\Ex4;
 
 /**
  * Class DbConnection

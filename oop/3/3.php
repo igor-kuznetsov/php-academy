@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpAcademy\Oop\Lesson2\Ex21;
+namespace PhpAcademy\Oop\Lesson3\Ex3;
 
 /**
  * Class Singleton

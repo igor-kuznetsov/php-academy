@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpAcademy\Oop\Lesson2\Ex19;
+namespace PhpAcademy\Oop\Lesson3\Ex1;
 
 /**
  * Class Test

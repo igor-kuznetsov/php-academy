@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpAcademy\Oop\Lesson2\Ex20;
+namespace PhpAcademy\Oop\Lesson3\Ex2;
 
 use Exception;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpAcademy\Oop\Lesson2\Ex23;
+namespace PhpAcademy\Oop\Lesson3\Ex5;
 
 /**
  * Class Registry
