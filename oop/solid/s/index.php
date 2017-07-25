@@ -13,4 +13,4 @@ spl_autoload_register(function($class) {
 
 $reporter = new PaymentsReporter();
 
-echo $reporter->between('10/10/2003', '11/11/2004');
+echo $reporter->between('2003-10-10', '2004-11-11');

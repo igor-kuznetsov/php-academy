@@ -4,6 +4,7 @@ namespace lessons\oop\solid\s;
 
 use Exception;
 use PDO;
+use PDOException;
 
 /**
  * Class PaymentsReporter
@@ -12,19 +13,16 @@ use PDO;
 class PaymentsReporter
 {
     /**
-     * @param string $start
-     * @param string $end
+     * @param string $startDate
+     * @param string $endDate
      * @return string
      * @throws Exception
      */
-    public function between(string $start, string $end)
+    public function between($startDate, $endDate)
     {
         if (!Auth::check()) {
             throw new Exception('Authentication is required');
         }
-
-        $startDate = $this->formatDate($start);
-        $endDate = $this->formatDate($end);
 
         $sales = $this->queryDbForPaymentsBetween($startDate, $endDate);
 
@@ -38,7 +36,20 @@ class PaymentsReporter
      */
     protected function queryDbForPaymentsBetween($startDate, $endDate)
     {
-        return 100.67;
+        try {
+            $dbh = new PDO('mysql:host=localhost;dbname=classicmodels', 'root', '');
+            $query = "SELECT SUM(`amount`) FROM `payments` WHERE `paymentDate` BETWEEN :startDate AND :endDate;";
+            $sth = $dbh->prepare($query);
+            $sth->execute([
+                'startDate' => $startDate,
+                'endDate' => $endDate
+            ]);
+            $result = $sth->fetchColumn();
+        } catch (PDOException $e) {
+            die('Error: ' . $e->getMessage());
+        }
+
+        return $result;
     }
 
     /**
@@ -48,14 +59,5 @@ class PaymentsReporter
     protected function format($value)
     {
         return "<h2>Payments: $value</h2>";
-    }
-
-    /**
-     * @param string $value
-     * @return string
-     */
-    protected function formatDate(string $value)
-    {
-        return date('Y-m-d', strtotime($value));
     }
 }
