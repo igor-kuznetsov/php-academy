@@ -1,6 +1,6 @@
 <?php
 
-namespace lessons\oop\solid\s;
+namespace lessons\oop\solid\srp;
 
 /**
  * Class Auth

@@ -1,6 +1,6 @@
 <?php
 
-namespace lessons\oop\solid\s;
+namespace lessons\oop\solid\srp;
 
 spl_autoload_register(function($class) {
     $parts = explode("\\", $class);
@@ -11,6 +11,6 @@ spl_autoload_register(function($class) {
     }
 });
 
-$reporter = new PaymentsReporterFixed(new PaymentsRepository());
+$reporter = new PaymentsReporter();
 
-echo $reporter->between('2003-10-10', '2004-11-11', new HtmlOutput());
+echo $reporter->between('2003-10-10', '2004-11-11');
