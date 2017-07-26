@@ -60,7 +60,11 @@ class Application
 }
 
 $registry = Registry::getInstance();
-$registry->set('database', new Database());
+
+$obj = new Database();
+$registry->set('database', $obj);
+unset($obj);
 $registry->set('application', new Application());
+
 $db = $registry->get('database');
 var_dump($db);

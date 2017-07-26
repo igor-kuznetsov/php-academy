@@ -22,11 +22,10 @@ try {
     ];
     $st->execute($params);
 
-    $params = [
+    $st->execute([
         'line' => 'test line 4',
         'description' => 'description for test line 4'
-    ];
-    $st->execute($params);
+    ]);
 } catch (PDOException $e) {
     print "Error: " . $e->getMessage() . "<br/>";
     die();

@@ -13,7 +13,7 @@ class DbConnection
     const DB_PASS = '';
     const DB_NAME = 'classicmodels';
 
-    private static $instance = null;
+    private static $instance = 'empty';
     private $connection;
 
     private function __clone() {}
@@ -31,7 +31,7 @@ class DbConnection
 
     public static function getInstance()
     {
-        if (null === self::$instance) {
+        if ('empty' === self::$instance) {
             self::$instance = new DbConnection();
         }
 

@@ -5,12 +5,12 @@ namespace PhpAcademy\Oop\Lesson3\Ex6;
 use PDO;
 use PDOException;
 
-$dns = 'mysql:host=localhost;dbname=classicmodels';
+$dsn = 'mysql:host=localhost;dbname=classicmodels';
 $user = 'root';
 $password = '';
 
 try {
-    $db = new PDO($dns, $user, $password); // open DB connection
+    $db = new PDO($dsn, $user, $password); // open DB connection
 
     $st = $db->query("SELECT * FROM `products` LIMIT 2;"); // query DB and get statement
 
@@ -41,6 +41,8 @@ try {
     $st = null;
     $db = null;
 } catch (PDOException $e) {
-    print "Error: " . $e->getMessage() . "<br/>";
-    die();
+    die("Error: " . $e->getMessage() . "<br/>");
+} catch (\Exception $e) {
+    print $e->getMessage();
+    die;
 }

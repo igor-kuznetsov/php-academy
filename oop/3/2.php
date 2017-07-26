@@ -4,6 +4,11 @@ namespace PhpAcademy\Oop\Lesson3\Ex2;
 
 use Exception;
 
+/**
+ * @param $x
+ * @return float|int
+ * @throws Exception
+ */
 function inverse($x) {
     if (!$x) {
         throw new Exception('Division by zero.');
@@ -15,8 +20,9 @@ function inverse($x) {
 try {
     echo inverse(5) . "<br>";
     echo inverse(0) . "<br>";
-} catch (Exception $e) {
-    echo 'Error: ',  $e->getMessage(), "<br>";
+    echo 'test';
+} catch (Exception $exception) {
+    echo 'Error: ',  $exception->getMessage(), "<br>";
 }
 
 /**
@@ -48,6 +54,7 @@ class MyException extends Exception
 class TestMyException
 {
     public $var;
+    public static $test;
 
     const THROW_NONE = 0;
     const THROW_MY = 1;
@@ -66,17 +73,18 @@ class TestMyException
 
             default:
                 $this->var = $value;
+                self::$test = $value;
                 break;
         }
     }
 }
 
-//try {
-//    $obj = new TestMyException(TestMyException::THROW_MY);
-//    var_dump($obj);
-//} catch (MyException $e) {
-//    echo $e;
-//    $e->customFunction();
-//} catch (Exception $e) {
-//    echo $e->getMessage();
-//}
+try {
+    $obj = new TestMyException(TestMyException::THROW_MY);
+    var_dump($obj);
+} catch (MyException $e) {
+    echo $e;
+    $e->customFunction();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}

@@ -1,5 +1,6 @@
 <?php
 
+namespace PhpAcademy\Oop\Lesson2\Lib;
 
 /**
  * Class MyLib1

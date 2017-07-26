@@ -9,6 +9,10 @@ namespace PhpAcademy\Oop\Lesson3\Ex9;
 class Something
 {
     // some properties and methods
+    public function doSomething()
+    {
+        //
+    }
 }
 
 /**
@@ -46,6 +50,7 @@ class Example
     function __construct(TestInterface $interface)
     {
         $this->interface = $interface;
+        $this->interface->test();
     }
 
     /**
@@ -54,6 +59,8 @@ class Example
     public function doSomething(Something $something)
     {
         // do something with $something
+        $something->doSomething();
+        $this->interface->test();
     }
 }
 
@@ -61,3 +68,14 @@ class Example
 $obj = new Example(new Test);
 
 $obj->doSomething(new Something());
+
+/**
+ * @param TestInterface $int
+ */
+function my_test(TestInterface $int)
+{
+    echo get_class($int);
+}
+
+my_test(new Test);
+my_test(10); // fatal error

@@ -34,6 +34,8 @@ class Singleton
     }
 }
 
+//$obj = new Singleton(); // fatal error
+
 $obj1 = Singleton::getInstance();
 echo $obj1->getCreated();
 echo '<hr>';
