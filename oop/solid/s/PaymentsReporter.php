@@ -20,6 +20,7 @@ class PaymentsReporter
      */
     public function between($startDate, $endDate)
     {
+        // violates SRP (it's application logic)
         if (!Auth::check()) {
             throw new Exception('Authentication is required');
         }
@@ -30,6 +31,8 @@ class PaymentsReporter
     }
 
     /**
+     * violates SRP (it's persistence layer)
+     *
      * @param string $startDate
      * @param string $endDate
      * @return float
@@ -53,6 +56,8 @@ class PaymentsReporter
     }
 
     /**
+     * violates SRP (it's presentation layer)
+     *
      * @param mixed $value
      * @return string
      */
