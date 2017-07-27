@@ -7,6 +7,7 @@ class DbManager
 {
     private static $instance = null;
     private $pdo;
+    private $name;
 
     private function __clone() {}
     private function __wakeup() {}
@@ -25,6 +26,7 @@ class DbManager
                 $user,
                 $pass
             );
+            $this->name = md5(time());
         } catch (PDOException $e) {
             die("PDO Exception: " . $e->getMessage() . "<br/>");
         } catch (Exception $e) {
@@ -45,10 +47,49 @@ class DbManager
     }
 
     /**
-     * @return PDO
+     * @param string $query
+     * @return PDOStatement
      */
-    public function getPdo()
+    public function query($query)
     {
-        return $this->pdo;
+        try {
+            $this->logQuery($query);
+
+            return $this->pdo->query($query);
+        } catch (PDOException $e) {
+            die("PDO Exception: " . $e->getMessage() . "<br/>");
+        } catch (Exception $e) {
+            die("Exception: " . $e->getMessage() . "<br/>");
+        }
+    }
+
+    /**
+     * @param string $query
+     * @return PDOStatement
+     */
+    public function prepare($query)
+    {
+        try {
+            $this->logQuery($query);
+
+            return $this->pdo->prepare($query);
+        } catch (PDOException $e) {
+            die("PDO Exception: " . $e->getMessage() . "<br/>");
+        } catch (Exception $e) {
+            die("Exception: " . $e->getMessage() . "<br/>");
+        }
+    }
+
+    /**
+     * @param string $query
+     */
+    private function logQuery($query)
+    {
+        $file = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'log.txt';
+        $content = 'CONNECTION: ' . $this->name . PHP_EOL;
+        $content .= 'QUERY: ' . $query . PHP_EOL;
+        $content .= 'DATETIME: ' . date('d/m/Y H:i:s') . PHP_EOL;
+        $content .= PHP_EOL;
+        file_put_contents($file, $content, FILE_APPEND);
     }
 }

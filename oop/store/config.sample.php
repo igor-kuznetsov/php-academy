@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', 'http://localhost/lessons/mysql/store');
+define('BASE_URL', 'http://localhost/lessons/oop/store');
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'ministore');

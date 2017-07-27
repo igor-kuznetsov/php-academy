@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class User
+ * Class SiteUser
  */
-class User
+class SiteUser
 {
     public $email;
     protected $password;
@@ -17,7 +17,7 @@ class User
 /**
  * Class Admin
  */
-class Admin extends User
+class Admin extends SiteUser
 {
     public function manageUsers()
     {
@@ -38,7 +38,7 @@ class Admin extends User
 /**
  * Class Writer
  */
-class Writer extends User
+class Writer extends SiteUser
 {
     public function manageArticles()
     {

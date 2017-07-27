@@ -80,7 +80,7 @@ class Auth
         $query = "SELECT * FROM `users`
                   WHERE `login` = '$login' AND `password` = '".self::getHash($password)."';";
 
-        foreach ($db->getPdo()->query($query) as $row) {
+        foreach ($db->query($query) as $row) {
             $user = new User($row);
         }
 

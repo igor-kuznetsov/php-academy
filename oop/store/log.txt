@@ -1,0 +1,87 @@
+CONNECTION: 94bda42fddb636b5c2a67d4fd9a74b12
+QUERY: SELECT * FROM `products` LIMIT 0,2;
+DATETIME: 27/07/2017 23:17:48
+
+CONNECTION: 94bda42fddb636b5c2a67d4fd9a74b12
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 1;
+DATETIME: 27/07/2017 23:17:48
+
+CONNECTION: 94bda42fddb636b5c2a67d4fd9a74b12
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 2;
+DATETIME: 27/07/2017 23:17:48
+
+CONNECTION: 94bda42fddb636b5c2a67d4fd9a74b12
+QUERY: SELECT COUNT(`id`) AS `products_count` FROM `products`;
+DATETIME: 27/07/2017 23:17:48
+
+CONNECTION: b2f25fc8c97feebb2e11c3cf89172a14
+QUERY: SELECT * FROM `products` WHERE `id` = 1;
+DATETIME: 27/07/2017 23:17:49
+
+CONNECTION: b2f25fc8c97feebb2e11c3cf89172a14
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 1;
+DATETIME: 27/07/2017 23:17:49
+
+CONNECTION: 257fd839d2a83d9785f69f5dbadad5b2
+QUERY: SELECT * FROM `products`;
+DATETIME: 27/07/2017 23:17:51
+
+CONNECTION: 257fd839d2a83d9785f69f5dbadad5b2
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 1;
+DATETIME: 27/07/2017 23:17:51
+
+CONNECTION: 257fd839d2a83d9785f69f5dbadad5b2
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 2;
+DATETIME: 27/07/2017 23:17:51
+
+CONNECTION: 257fd839d2a83d9785f69f5dbadad5b2
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 4;
+DATETIME: 27/07/2017 23:17:51
+
+CONNECTION: 257fd839d2a83d9785f69f5dbadad5b2
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 5;
+DATETIME: 27/07/2017 23:17:51
+
+CONNECTION: 8ecada92bfc0bdbcfa2cb5e3e1d39bd2
+QUERY: SELECT * FROM `products` LIMIT 0,2;
+DATETIME: 27/07/2017 23:18:41
+
+CONNECTION: 8ecada92bfc0bdbcfa2cb5e3e1d39bd2
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 1;
+DATETIME: 27/07/2017 23:18:41
+
+CONNECTION: 8ecada92bfc0bdbcfa2cb5e3e1d39bd2
+QUERY: SELECT `c`.`name` AS `category`
+                  FROM `products` AS `p`
+                  JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
+                  WHERE `p`.`id` = 2;
+DATETIME: 27/07/2017 23:18:41
+
+CONNECTION: 8ecada92bfc0bdbcfa2cb5e3e1d39bd2
+QUERY: SELECT COUNT(`id`) AS `products_count` FROM `products`;
+DATETIME: 27/07/2017 23:18:41
+

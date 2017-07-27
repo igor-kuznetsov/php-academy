@@ -75,7 +75,7 @@ abstract class Entity
 
         $query = "SELECT * FROM `$table`;";
 
-        foreach ($db->getPdo()->query($query) as $row) {
+        foreach ($db->query($query) as $row) {
             $entities[] = new static($row);
         }
 
@@ -97,7 +97,7 @@ abstract class Entity
 
         $query = "SELECT * FROM `$table` LIMIT $offset,$limit;";
 
-        foreach ($db->getPdo()->query($query) as $row) {
+        foreach ($db->query($query) as $row) {
             $entities[] = new static($row);
         }
 
@@ -116,7 +116,7 @@ abstract class Entity
         $id = (int) $id;
         $query = "SELECT * FROM `$table` WHERE `id` = $id;";
 
-        foreach ($db->getPdo()->query($query) as $row) {
+        foreach ($db->query($query) as $row) {
             $entity = new static($row);
         }
 
@@ -135,7 +135,7 @@ abstract class Entity
         $ids = implode(',', $ids);
         $query = "SELECT * FROM `$table` WHERE `id` IN ($ids);";
 
-        foreach ($db->getPdo()->query($query) as $row) {
+        foreach ($db->query($query) as $row) {
             $entities[] = new static($row);
         }
 
@@ -152,7 +152,7 @@ abstract class Entity
         $db = DbManager::getInstance();
 
         $query = "DELETE FROM `$table` WHERE `id` = $id;";
-        $db->getPdo()->query($query);
+        $db->query($query);
     }
 
     /**
@@ -179,7 +179,7 @@ abstract class Entity
         $query = "INSERT INTO `$table` ($columnsList) VALUES ($valuesList);";
 
         $db = DbManager::getInstance();
-        $st = $db->getPdo()->prepare($query);
+        $st = $db->prepare($query);
 
         return $st->execute();
     }
@@ -208,7 +208,7 @@ abstract class Entity
             $query = "UPDATE `$table` SET $setList WHERE `id` = $id;";
 
             $db = DbManager::getInstance();
-            $st = $db->getPdo()->prepare($query);
+            $st = $db->prepare($query);
 
             return $st->execute();
         }

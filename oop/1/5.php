@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Class Product
+ * Class StoreProduct
  */
-class Product
+class StoreProduct
 {
     public $title;
 }
 
-$product = new Product();
+$product = new StoreProduct();
 $product->title = 'product 1';
 
 $productCopy = $product;

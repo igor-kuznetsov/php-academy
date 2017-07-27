@@ -56,7 +56,7 @@ class Product extends Entity
                   JOIN `categories` AS `c` ON `p`.`category_id` = `c`.`id`
                   WHERE `p`.`id` = $this->id;";
 
-        return $db->getPdo()->query($query)->fetch(0)['category'];
+        return $db->query($query)->fetch(0)['category'];
     }
 
     /**
@@ -68,7 +68,7 @@ class Product extends Entity
         $db = DbManager::getInstance();
 
         $query = "SELECT COUNT(`id`) AS `products_count` FROM `products`;";
-        $products_count = $db->getPdo()->query($query)->fetch(0)['products_count'];
+        $products_count = $db->query($query)->fetch(0)['products_count'];
 
         if ($products_count > ITEMS_PER_PAGE) {
             $pages = ceil($products_count / ITEMS_PER_PAGE);
