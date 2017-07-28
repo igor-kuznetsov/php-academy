@@ -113,6 +113,7 @@ abstract class Entity
         $entity = null;
         $table = static::getTable();
         $db = DbManager::getInstance();
+
         $id = (int) $id;
         $query = "SELECT * FROM `$table` WHERE `id` = $id;";
 
@@ -224,9 +225,11 @@ abstract class Entity
     public function getLink($file, $attributes = [])
     {
         $link = "$file?id=$this->id";
+
         if (is_array($attributes)) {
             foreach ($attributes as $key => $value) {
                 $link .= "&$key=$value";
+                //$link = $link . "&$key=$value";
             }
         }
 

@@ -10,7 +10,7 @@ class PasswordReminder
 {
     private $dbConnection;
 
-    public function __construct(MySqlConnection $dbConnection)
+    public function __construct(DbConnectionInterface $dbConnection)
     {
         $this->dbConnection = $dbConnection;
     }
@@ -20,10 +20,12 @@ class PasswordReminder
  * Class MySqlConnection
  * @package lessons\oop\solid\dip
  */
-class MySqlConnection
+class MySqlConnection implements DbConnectionInterface
 {
     //
 }
 
-// TODO: add DbConnectionInterface
-// TODO: MySQLConnection implements DbConnectionInterface
+interface DbConnectionInterface
+{
+     //
+}
