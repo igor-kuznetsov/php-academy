@@ -1,0 +1,1 @@
+<div><?php echo $data['page_content']; ?></div>

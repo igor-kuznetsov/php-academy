@@ -11,6 +11,8 @@ class Router
     protected $route;
     protected $action_prefix;
 
+    protected $language;
+
     /**
      * Router constructor.
      * @param $uri
@@ -25,6 +27,8 @@ class Router
         $this->action = Config::get('default_action');
         $this->action_prefix = $routes[$this->route];
 
+        $this->language = Config::get('default_language');
+
         $uri_parts = explode('?', $this->uri);
         $path = $uri_parts[0];
         $path_parts = explode('/', $path);
@@ -34,6 +38,9 @@ class Router
             if (in_array(strtolower(current($path_parts)), array_keys($routes))) {
                 $this->route = strtolower(current($path_parts));
                 $this->action_prefix = isset($routes[$this->route]) ? $routes[$this->route] : '';
+                array_shift($path_parts);
+            } elseif (in_array(strtolower(current($path_parts)), Config::get('languages'))) {
+                $this->language = strtolower(current($path_parts));
                 array_shift($path_parts);
             }
 
@@ -97,5 +104,13 @@ class Router
     public function getActionPrefix()
     {
         return $this->action_prefix;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLanguage()
+    {
+        return $this->language;
     }
 }

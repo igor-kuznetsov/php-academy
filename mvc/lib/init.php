@@ -1,8 +1,8 @@
 <?php
 
 spl_autoload_register(function ($class_name) {
-    $lib_path = ROOT.DS.'lib'.DS.strtolower($class_name).'.class.php';
-    $controllers_path = '';
+    $lib_path = LIB_PATH.DS.strtolower($class_name).'.class.php';
+    $controllers_path = CONTROLLERS_PATH.DS.str_replace('controller', '', strtolower($class_name)).'.controller.php';
     $models_path = '';
 
     if (file_exists($lib_path)) {
