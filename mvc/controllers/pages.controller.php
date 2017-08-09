@@ -2,25 +2,48 @@
 
 class PagesController extends Controller
 {
-    public function index()
+    /**
+     * PagesController constructor.
+     * @param array $data
+     */
+    public function __construct($data = [])
     {
-        $this->data['page_content'] = 'Test content for index page';
-
-        return VIEWS_PATH.DS.'test'.DS.'test.php';
+        parent::__construct($data);
+        $this->model = new Page();
     }
 
-    public function admin_index()
+    public function index()
     {
-        //
+        $this->data['pages'] = $this->model->getList();
     }
 
     public function view()
     {
         if (isset($this->params[0])) {
-            $page_name = strtolower($this->params[0]);
-            $this->data['page_content'] =  'Page "'.$page_name.'"';
+            $alias = strtolower($this->params[0]);
+            $this->data['page'] =  $this->model->getByAlias($alias);
         } else {
             throw new Exception('Page name is required');
         }
+    }
+
+    public function admin_index()
+    {
+        $this->data['pages'] = $this->model->getList();
+    }
+
+    public function admin_edit()
+    {
+
+    }
+
+    public function admin_delete()
+    {
+
+    }
+
+    public function admin_add()
+    {
+
     }
 }

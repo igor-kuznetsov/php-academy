@@ -19,7 +19,7 @@ class Controller
     /**
      * @return array
      */
-    public function getData(): array
+    public function getData()
     {
         return $this->data;
     }
@@ -35,7 +35,7 @@ class Controller
     /**
      * @return array
      */
-    public function getParams(): array
+    public function getParams()
     {
         return $this->params;
     }

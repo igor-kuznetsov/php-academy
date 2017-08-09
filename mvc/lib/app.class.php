@@ -3,6 +3,7 @@
 class App
 {
     protected static $router;
+    protected static $db;
 
     /**
      * @return mixed
@@ -15,6 +16,13 @@ class App
     public static function run($uri)
     {
         self::$router = new Router($uri);
+
+        self::$db = new DB(
+            Config::get('db_host'),
+            Config::get('db_user'),
+            Config::get('db_pass'),
+            Config::get('db_name')
+        );
 
         Lang::load(self::$router->getLanguage());
 
@@ -39,5 +47,13 @@ class App
         //$layout_view_object = new View(['content' => $content], $layout_path);
         $layout_view_object = new View(compact('content'), $layout_path);
         echo $layout_view_object->render();
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getDb()
+    {
+        return self::$db;
     }
 }
