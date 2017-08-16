@@ -15,6 +15,8 @@ class App
 
     public static function run($uri)
     {
+        session_start();
+
         self::$router = new Router($uri);
 
         self::$db = new DB(
@@ -33,6 +35,16 @@ class App
         $action = self::$router->getAction();
         $controller_action = strtolower($action_prefix.$action);
 
+        $route = App::getRouter()->getRoute();
+
+        if ($route == 'admin') {
+            if (empty(Session::get('user'))) {
+                Router::redirect('/users/login');
+            } elseif (Session::get('role') != 'admin') {
+                Router::redirect('/');
+            }
+        }
+
         $controller_object = new $controller_class();
         if (method_exists($controller_object, $controller_action)) {
             $view_path = $controller_object->$controller_action();
@@ -42,7 +54,7 @@ class App
             throw new Exception('Method '.$controller_action.' of class '.$controller_class.' does not exist');
         }
 
-        $layout = App::getRouter()->getRoute();
+        $layout = $route;
         $layout_path = VIEWS_PATH.DS.$layout.'.php';
         //$layout_view_object = new View(['content' => $content], $layout_path);
         $layout_view_object = new View(compact('content'), $layout_path);

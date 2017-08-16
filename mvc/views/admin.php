@@ -21,12 +21,17 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                <?php if (!empty(Session::get('user'))) : ?>
                 <li <?php echo App::getRouter()->getController() == 'pages' ? 'class="active"' : ''; ?>>
-                    <a href="/pages">Pages</a>
+                    <a href="/admin/pages">Pages</a>
                 </li>
                 <li <?php echo App::getRouter()->getController() == 'contacts' ? 'class="active"' : ''; ?>>
-                    <a href="/contacts">Contact Us</a>
+                    <a href="/admin/contacts">Messages</a>
                 </li>
+                <li>
+                    <a href="/users/logout">Logout</a>
+                </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

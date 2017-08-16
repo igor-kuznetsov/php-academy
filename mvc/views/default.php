@@ -27,6 +27,15 @@
                     <li <?php echo App::getRouter()->getController() == 'contacts' ? 'class="active"' : ''; ?>>
                         <a href="/contacts">Contact Us</a>
                     </li>
+                    <?php if (empty(Session::get('user'))) : ?>
+                        <li>
+                            <a href="/users/login">Login</a>
+                        </li>
+                    <?php else: ?>
+                        <li>
+                            <a href="/users/logout">Logout</a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

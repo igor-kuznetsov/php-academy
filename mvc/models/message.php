@@ -4,7 +4,7 @@ class Message extends Model
 {
     public function save($data, $id = null)
     {
-        $id = (int) $id;
+        $id = (int)$id;
 
         $name = $this->db->escape($data['name']);
         $email = $this->db->escape($data['email']);
@@ -20,6 +20,13 @@ class Message extends Model
                     `message` = '$message'
                     WHERE `id` = $id;";
         }
+
+        return $this->db->query($sql);
+    }
+
+    public function getList()
+    {
+        $sql = "SELECT * FROM `messages`;";
 
         return $this->db->query($sql);
     }

@@ -5,6 +5,7 @@
             <th>Alias</th>
             <th>Title</th>
             <th>Content</th>
+            <th>Published</th>
             <th></th>
         </tr>
     </thead>
@@ -14,6 +15,7 @@
         <td><?php echo $page['alias']; ?></td>
         <td><?php echo $page['title']; ?></td>
         <td><?php echo $page['content']; ?></td>
+        <td><?php echo $page['is_published'] ? 'Yes' : 'No'; ?></td>
         <td>
             <a href="/admin/pages/edit/<?php echo $page['id']; ?>">
                 <button class="btn btn-sm btn-primary">edit</button>
