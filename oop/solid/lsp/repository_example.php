@@ -8,6 +8,9 @@ namespace lessons\oop\solid\lsp;
  */
 interface RepositoryInterface
 {
+    /**
+     * @return array
+     */
     public function getAll();
 }
 

@@ -26,7 +26,3 @@ class Checkout
         // accept the cash for this order
     }
 }
-
-// TODO: add PaymentMethodInterface
-// TODO: add CashPaymentMethod
-// TODO: add dependency injection for payment method to start() method

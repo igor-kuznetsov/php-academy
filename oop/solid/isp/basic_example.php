@@ -2,6 +2,21 @@
 
 namespace lessons\oop\solid\isp;
 
+interface WorkInterface
+{
+    public function work();
+}
+
+interface SleepInterface
+{
+    public function sleep();
+}
+
+interface ManageInterface
+{
+    public function manage();
+}
+
 /**
  * Class Captain
  * @package lessons\oop\solid\isp
@@ -9,12 +24,11 @@ namespace lessons\oop\solid\isp;
 class Captain
 {
     /**
-     * @param CrewMember $crewMember
+     * @param ManageInterface $manage
      */
-    public function manage(CrewMember $crewMember)
+    public function manage(ManageInterface $manage)
     {
-        $crewMember->work();
-        $crewMember->sleep();
+        $manage->manage();
     }
 }
 
@@ -22,7 +36,7 @@ class Captain
  * Class Crew
  * @package lessons\oop\solid\isp
  */
-class CrewMember
+class CrewMember implements WorkInterface, SleepInterface, ManageInterface
 {
     public function work()
     {
@@ -33,12 +47,27 @@ class CrewMember
     {
         echo "I'm sleeping";
     }
+
+    public function manage()
+    {
+        $this->work();
+        $this->sleep();
+    }
 }
 
-// TODO: add CrewMemberInterface
-// TODO: replace CrewMember with HumanCrewMember
-// TODO: add RobotCrewMember
-// TODO: show violation of ISP
-// TODO: replace CrewMemberInterface with WorkInterface and SleepInterface
-// TODO: show violation of SRP
-// TODO: add ManageInterface
+/**
+ * Class Robot
+ * @package lessons\oop\solid\isp
+ */
+class Robot implements WorkInterface, ManageInterface
+{
+    public function work()
+    {
+        echo "I'm working";
+    }
+
+    public function manage()
+    {
+        $this->work();
+    }
+}

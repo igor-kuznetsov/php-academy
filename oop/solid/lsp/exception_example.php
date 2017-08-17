@@ -34,5 +34,7 @@ class AviVideoPlayer extends VideoPlayer
         if ('avi' != pathinfo($file, PATHINFO_EXTENSION)) {
             throw new Exception('Error: Only AVI is allowed!'); // violates LSP
         }
+
+        // play avi play
     }
 }

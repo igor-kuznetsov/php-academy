@@ -35,7 +35,7 @@ class Product extends Entity
     public function __construct($data = [])
     {
         if (is_array($data) && !empty($data)) {
-            $this->id = $data['id'] ?? null;
+            $this->id = $data['id'] ?? null;// isset($data['id']) ? $data['id'] : null
             $this->name = $data['name'] ?? null;
             $this->description = $data['description'] ?? null;
             $this->price = $data['price'] ?? null;

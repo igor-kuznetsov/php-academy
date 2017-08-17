@@ -24,6 +24,11 @@ class B extends A
     {
         //
     }
+
+    public function alpha()
+    {
+        //
+    }
 }
 
 /**
@@ -33,9 +38,9 @@ class B extends A
 class C
 {
     /**
-     * @param B $obj
+     * @param mixed $obj
      */
-    public function doSomething(B $obj)
+    public function doSomething(A $obj)
     {
         $obj->test();
     }

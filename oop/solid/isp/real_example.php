@@ -67,5 +67,3 @@ class PasswordManager
         $this->mailer->sendTo($user->getReminderEmail());
     }
 }
-
-// TODO: explain why we use PasswordRemindInterface instead of User class
