@@ -2,6 +2,8 @@
 
 namespace Advanced\Patterns\Strategy;
 
+use LogicException;
+
 /**
  * Class ObjectCollection
  * @package Advanced\Patterns\Strategy
@@ -29,7 +31,7 @@ class ObjectCollection
     public function sort(): array
     {
         if (!$this->comparator) {
-            throw new \LogicException('Comparator is not set');
+            throw new LogicException('Comparator is not set');
         }
 
         uasort($this->elements, [$this->comparator, 'compare']);

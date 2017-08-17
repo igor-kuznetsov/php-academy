@@ -20,7 +20,7 @@ class PcBios implements BiosInterface
 
     public function launch(OsInterface $os)
     {
-        // TODO: Implement launch() method.
+        echo $os->getName() . ' launched';
     }
 
     public function powerDown()
