@@ -4,7 +4,7 @@ namespace Advanced\Composer;
 
 require_once 'vendor/autoload.php';
 
-use Examples\Composer\Lib\App;
+use Advanced\Composer\Lib\App;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PHPMailer;
@@ -14,8 +14,8 @@ $logger->pushHandler(new StreamHandler('log.txt', Logger::WARNING));
 $logger->warning('some test warning goes here', ['id' => 10, 'page' => 15]);
 $logger->error('some error goes here');
 
-//$app = new App();
-//$app->run();
+$app = new App();
+$app->run();
 
 //$mailer = new PHPMailer();
 //$mailer->isSMTP(); // set to use SMTP
