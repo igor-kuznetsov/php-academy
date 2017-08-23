@@ -30,9 +30,9 @@ class ObjectCollection
 
     public function sort(): array
     {
-        if (!$this->comparator) {
-            throw new LogicException('Comparator is not set');
-        }
+//        if (!$this->comparator) {
+//            throw new LogicException('Comparator is not set');
+//        }
 
         uasort($this->elements, [$this->comparator, 'compare']);
 

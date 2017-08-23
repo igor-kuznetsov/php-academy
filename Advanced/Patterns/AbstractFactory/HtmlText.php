@@ -10,6 +10,6 @@ class HtmlText extends AbstractText
 {
     public function getText()
     {
-        return '<p>'.$this->text.'</p>';
+        return '<b>'.$this->text.'</b>';
     }
 }
