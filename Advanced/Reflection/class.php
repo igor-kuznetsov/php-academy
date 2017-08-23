@@ -77,9 +77,12 @@ try {
 
     foreach ($reflectionClass->getMethods(ReflectionMethod::IS_PUBLIC) as $reflectionMethod) {
         if (! $reflectionMethod->isConstructor()) {
-            $reflectionMethod->invoke($object);
+            $reflectionMethod->invoke($object);// $object->work();
         }
     }
+
+    $obj = new Manager();
+    $obj->work();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
