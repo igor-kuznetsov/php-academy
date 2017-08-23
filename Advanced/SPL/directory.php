@@ -1,6 +1,8 @@
 <?php
 
 $iterator = new DirectoryIterator('../');
+//$fs = new FilesystemIterator('');
+//$e = new EmptyIterator();
 
 ?>
 <table border="1" cellspacing="0" cellpadding="5" width="640px">
