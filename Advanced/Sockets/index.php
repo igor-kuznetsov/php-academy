@@ -32,7 +32,7 @@ do {
     /* Send instructions. */
     $msg = PHP_EOL."Welcome to the PHP Test Server.".
         PHP_EOL."To quit, type 'quit'.".
-        PHP_EOL."To quit, type 'quit'. To shut down the server type 'shutdown'.".PHP_EOL;
+        PHP_EOL."To shut down the server, type 'shutdown'.".PHP_EOL;
     socket_write($msg_sock, $msg, strlen($msg));
 
     do {
