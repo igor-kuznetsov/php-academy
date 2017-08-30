@@ -11,6 +11,7 @@ if (false === $xml) {
     foreach(libxml_get_errors() as $error) {
         echo $error->message.'<br>';
     }
+    die;
 }
 
 // SimpleXMLElement object structure
@@ -27,9 +28,14 @@ var_dump($xml->movie->title);
 echo '<br>';
 $title = (string) $xml->movie->title;
 var_dump($title);
+//echo $xml->movie->title;
+//if ($xml->movie->title == 'test') {
+//
+//}
 
 // accessing attributes
 echo '<hr>';
+//var_dump($xml->movie->rating);
 foreach ($xml->movie->rating as $rating) {
     //print_r($rating);
     $type = (string) $rating['type'];

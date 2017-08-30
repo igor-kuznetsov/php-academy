@@ -8,20 +8,23 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 
 $pdfOptions = new Options();
+
 $oldRoot = $pdfOptions->getChroot();
 $newRoot = dirname(__FILE__);
 $pdfOptions->setChroot($newRoot);
+
 $fontDir = implode(DIRECTORY_SEPARATOR, [
     $oldRoot,
     'lib',
     'fonts'
 ]);
 $pdfOptions->setFontDir($fontDir);
+
 $pdfOptions->set('defaultFont', 'Courier');
 
 $pdf = new Dompdf($pdfOptions);
 $pdf->loadHtmlFile('page.html');
-$pdf->setPaper('A4', 'landscape');
+$pdf->setPaper('A4');
 $pdf->render();
 
 $output = $pdf->output();

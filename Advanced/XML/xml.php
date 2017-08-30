@@ -8,10 +8,10 @@ $xml = simplexml_load_file('data.xml');
 $xml->movie->title = 'New title for my XML';
 
 // add new attributes
-$xml->movie[0]->addAttribute('test', 'some value');
+$xml->movie->addAttribute('test', 'some value');
 
 // add new elements
-$xml->movie[0]->addChild('status', 'New');
+$xml->movie->addChild('status', 'New');
 
 $character = $xml->movie[0]->characters->addChild('character');
 $character->addChild('name', 'Test Name');
