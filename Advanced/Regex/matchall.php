@@ -1,7 +1,7 @@
 <?php
 
-$pattern = '#(foo)(bar)(test)*#';
-$subject = 'foobartest foobar';
+$pattern = '/(foo)(bar)(test)*/';
+$subject = 'example foobartest foobar test2';
 $matches = [];
 
 $result = preg_match_all($pattern, $subject, $matches);

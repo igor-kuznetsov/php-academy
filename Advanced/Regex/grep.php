@@ -9,7 +9,8 @@ $input = [
     'foobar 212',
     'test test',
     '412 foobartest',
-    'test'
+    'test',
+    'test2'
 ];
 
 $result = preg_grep($pattern, $input);
