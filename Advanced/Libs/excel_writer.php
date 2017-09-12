@@ -2,9 +2,9 @@
 
 require_once 'vendor/autoload.php';
 
-$objPHPExcel = new PHPExcel();
+$phpExcel = new PHPExcel();
 
-$objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
+$phpExcel->getProperties()->setCreator("Maarten Balliauw")
     ->setLastModifiedBy("Maarten Balliauw")
     ->setTitle("PHPExcel Test Document")
     ->setSubject("PHPExcel Test Document")
@@ -12,13 +12,13 @@ $objPHPExcel->getProperties()->setCreator("Maarten Balliauw")
     ->setKeywords("office PHPExcel php")
     ->setCategory("Test result file");
 
-$objPHPExcel->setActiveSheetIndex(0)
+$phpExcel->setActiveSheetIndex(0)
     ->setCellValue('A1', 'Hello')
     ->setCellValue('B2', 'world!')
     ->setCellValue('C1', 'Hello')
     ->setCellValue('D2', 'world!');
 
-$objPHPExcel->getActiveSheet()->setTitle('Simple');
+$phpExcel->getActiveSheet()->setTitle('Simple');
 
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-$objWriter->save('simple.xlsx');
+$writer = new PHPExcel_Writer_Excel2007($phpExcel);
+$writer->save('simple.xlsx');
