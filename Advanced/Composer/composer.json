@@ -1,7 +1,6 @@
 {
 	"require": {
-		"monolog/monolog": "1.23.*",
-		"phpmailer/phpmailer": "~5.2"
+		"monolog/monolog": "1.23.*"
 	},
 	"autoload": {
 		"psr-4": {
