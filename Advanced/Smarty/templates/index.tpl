@@ -18,9 +18,12 @@
 <h3>Objects</h3>
 <p>{$obj->name}</p>
 <p>{$obj->test()}</p>
-<h2>IF ... ELSE</h2>
+<h2>If ... Else</h2>
 {if $boolean_var}
     <p>"true" value</p>
 {else}
     <p>"false" value</p>
 {/if}
+<h2>Including</h2>
+{include file="section.tpl" section_var="section variable value"}
+{include "part.tpl"}

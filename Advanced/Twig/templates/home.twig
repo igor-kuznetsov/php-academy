@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: green; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>Homepage</h1>
+    <p class="important">
+        Welcome to my awesome homepage.
+    </p>
+{% endblock %}

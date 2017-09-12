@@ -1,0 +1,28 @@
+<h2>Comments</h2>
+{# This is a twig comment, it doesn't exist in the compiled output #}
+{#
+this multiline twig
+comment is
+not sent to browser
+#}
+<!-- HTML comment that is sent to the browser -->
+<h2>Variables</h2>
+<h3>Simple</h3>
+<p>My name is {{ name }}</p>
+<h3>Arrays</h3>
+<p>First value of array: {{ myArray[0] }}</p>
+<p>Value from assoc array by key: {{ myArray.test_assoc }}</p>
+<p>This works too: {{ myArray['test_assoc'] }}</p>
+<p>Multi-level array: {{ myArray.multi.test }}</p>
+<h3>Objects</h3>
+<p>{{ obj.name }}</p>
+<p>{{ obj.test() }}</p>
+<h2>If ... Else</h2>
+{% if boolean_var %}
+<p>"true" value</p>
+{% else %}
+<p>"false" value</p>
+{% endif %}
+<h2>Including</h2>
+{{ include('section.twig') }}
+{{ include('part.twig', {part_var: 'part variable value'}) }}

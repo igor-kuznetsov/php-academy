@@ -1,0 +1,4 @@
+<div style="border:1px solid black">
+    included part
+    <p>Part variable: {$part_var}</p>
+</div>
