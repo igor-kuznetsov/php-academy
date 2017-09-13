@@ -29,9 +29,9 @@
 
         $('#link').on('click', function (event) {
             event.preventDefault();
-
+            var $this = $(this);
             $.ajax({
-                url: $(this).attr('href'),
+                url: $this.attr('href'),
                 type: 'post',
                 data: {
                     text: 'JQuery',

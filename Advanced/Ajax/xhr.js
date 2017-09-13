@@ -3,12 +3,12 @@ function sendXhrGet()
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
-        if (xhr.status != 0) {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(xhr.responseText);
-            } else {
-                console.log(xhr.status + ': ' + xhr.statusText);
-            }
+        if (this.readyState != 4) return;
+
+        if (this.status == 200) {
+            console.log(xhr.responseText);
+        } else {
+            console.log(xhr.status + ': ' + xhr.statusText);
         }
     };
 
@@ -21,9 +21,9 @@ function sendXhrPost()
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
-        if (xhr.readyState != 4) return;
+        if (this.readyState != 4) return;
 
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.status == 200) {
             document.getElementById('container').innerHTML = xhr.responseText;
             console.log('OK');
         } else {
@@ -34,7 +34,7 @@ function sendXhrPost()
     xhr.open('POST', 'post.php', true);
 
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("text=XHR&h=10");
+    xhr.send("text=XHR&h=30");
 
     return false;
 }
