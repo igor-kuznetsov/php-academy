@@ -4,7 +4,8 @@ require_once 'vendor/autoload.php';
 
 $phpExcel = new PHPExcel();
 
-$phpExcel->getProperties()->setCreator("Maarten Balliauw")
+$phpExcel->getProperties()
+    ->setCreator("Maarten Balliauw")
     ->setLastModifiedBy("Maarten Balliauw")
     ->setTitle("PHPExcel Test Document")
     ->setSubject("PHPExcel Test Document")

@@ -2,6 +2,6 @@
 
 echo '<pre>';
 
-//print_r(opcache_get_configuration());
-//print_r(opcache_get_status());
+//print_r(opcache_get_configuration()); // array
+//print_r(opcache_get_status()); // array
 //opcache_reset();

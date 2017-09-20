@@ -14,20 +14,20 @@ $twig = new Twig_Environment($loader, array(
     'debug' => true
 ));
 
-echo $twig->render('index.twig', [
-    'name' => 'Vasya',
-    'myArray' => [
-        'first value of array',
-        'test_assoc' => 'Assoc works just fine!',
-        'multi' => [
-            'test' => 3
-        ]
-    ],
-    'boolean_var' => true,
-    'obj' => new MyClass(),
-    'section_variable' => 'section variable value'
-]);
+//echo $twig->render('index.twig', [
+//    'name' => 'Vasya',
+//    'myArray' => [
+//        'first value of array',
+//        'test_assoc' => 'Assoc works just fine!',
+//        'multi' => [
+//            'test' => 3
+//        ]
+//    ],
+//    'boolean_var' => true,
+//    'obj' => new MyClass(),
+//    'section_variable' => 'section variable value'
+//]);
 
-//echo $twig->render('home.twig');
+echo $twig->render('home.twig');
 
 //echo $twig->render('page.twig');

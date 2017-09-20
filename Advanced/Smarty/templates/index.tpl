@@ -25,5 +25,5 @@
     <p>"false" value</p>
 {/if}
 <h2>Including</h2>
-{include file="section.tpl" section_var="section variable value"}
+{include file="section.tpl" section_var="section variable value" x="10"}
 {include "part.tpl"}
