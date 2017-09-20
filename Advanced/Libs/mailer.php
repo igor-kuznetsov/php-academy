@@ -1,13 +1,14 @@
 <?php
 
 require_once 'vendor/autoload.php';
+require_once 'config.php';
 
 $mailer = new PHPMailer();
 $mailer->isSMTP(); // set to use SMTP
 $mailer->Host = 'smtp.gmail.com'; // SMTP host
 $mailer->SMTPAuth = true; // enable SMTP auth
-$mailer->Username = 'igor.kuznetsov.smtp@gmail.com'; // SMTP user
-$mailer->Password = 'MD56kq123!'; // SMTP password
+$mailer->Username = SMTP_USER; // SMTP user
+$mailer->Password = SMTP_PASS; // SMTP password
 $mailer->SMTPSecure = 'tls'; // enable TLS encryption
 $mailer->Port = 587; // SMTP port
 
