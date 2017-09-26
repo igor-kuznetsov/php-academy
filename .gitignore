@@ -17,3 +17,5 @@
 /Advanced/Smarty/templates_c
 /Advanced/Twig/vendor
 /Advanced/Twig/templates_c
+/Advanced/Payment/vendor
+/Advanced/Payment/config.php
