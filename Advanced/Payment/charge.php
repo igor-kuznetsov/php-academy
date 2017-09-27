@@ -8,6 +8,7 @@ require_once 'config.php';
 use Stripe\Stripe;
 use Stripe\Charge;
 use Stripe\Customer;
+use Stripe\Error\Api as ApiError;
 
 // Set your secret key
 // See your keys here: https://dashboard.stripe.com/account/apikeys
@@ -20,10 +21,14 @@ $token = $_POST['stripeToken'];
 if (empty($token)) {
     echo 'Payment error: Token is empty!';
 } else {
-    $customer = Customer::create([
-        'email' => $_POST['stripeEmail'],
-        'source' => $token
-    ]);
+    try {
+        $customer = Customer::create([
+            'email' => $_POST['stripeEmail'],
+            'source' => $token
+        ]);
+    } catch (ApiError $exception) {
+        echo $exception->getMessage();
+    }
 
     echo 'Customer ID: ' . $customer->id . "<br>";
 
