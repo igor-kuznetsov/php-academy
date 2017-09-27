@@ -1,0 +1,12 @@
+
+curl -X POST  http://my-api.loc/register -d name=”Petya Pupkin” -d email=”petya.p@mail.com” -d password=”1qaz2wsx”
+
+curl -X POST  http://my-api.loc/login -d email=”petya.p@mail.com” -d password=”1qaz2wsx”
+
+curl -H “Authorization: baa5ddd75662e999570fa220518a5121”  http://my-api.loc/tasks
+
+curl -X POST -H “Authorization: baa5ddd75662e999570fa220518a5121”  http://my-api.loc/tasks -d task=”New Task”
+
+curl -X PUT -H “Authorization: baa5ddd75662e999570fa220518a5121” http://my-api.loc/tasks/4 -d task="Updated Task" -d status=1
+
+curl -X DELETE -H “Authorization: baa5ddd75662e999570fa220518a5121” http://my-api.loc/tasks/4
