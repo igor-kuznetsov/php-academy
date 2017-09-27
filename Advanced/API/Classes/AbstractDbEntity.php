@@ -42,9 +42,4 @@ abstract class AbstractDbEntity
 
         return $data;
     }
-
-    protected function escape($string)
-    {
-        return $this->db->real_escape_string($string);
-    }
 }

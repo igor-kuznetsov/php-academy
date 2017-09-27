@@ -6,7 +6,8 @@ require_once '../vendor/autoload.php';
 
 use Advanced\API\Classes\Users;
 use Advanced\API\Classes\Tasks;
-use Dompdf\Exception;
+
+use Exception;
 use mysqli;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
