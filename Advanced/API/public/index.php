@@ -134,15 +134,99 @@ $app->get('/tasks', function (Request $request, Response $response, $args) {
 });
 
 $app->get('/tasks/{id}', function (Request $request, Response $response, $args) {
-    //
+    $result = [
+        'success' => true,
+        'errors' => [],
+        'status' => 200,
+        'data' => []
+    ];
+
+    $user = new Users($this->db);
+    $api_key = (string) $request->getHeaderLine('Authorization');
+    if (empty($api_key)) {
+        $result['success'] = false;
+        $result['errors'][] = 'Authorization is required';
+        $result['status'] = 403;
+    } else {
+        $currentUser = $user->getByApiKey($api_key);
+        if ($currentUser['success']) {
+            $task = new Tasks($this->db);
+            $task->id = (int) $request->getAttribute('id');
+            $result = $task->read();
+        } else {
+            $result['success'] = false;
+            $result['errors'][] = 'Wrong API key';
+            $result['status'] = 401;
+        }
+    }
+
+    return $response->withJson($result, $result['status']);
 });
 
 $app->put('/tasks/{id}', function (Request $request, Response $response, $args) {
-    //
+    $result = [
+        'success' => true,
+        'errors' => [],
+        'status' => 200,
+        'data' => []
+    ];
+
+    $user = new Users($this->db);
+    $api_key = (string) $request->getHeaderLine('Authorization');
+    if (empty($api_key)) {
+        $result['success'] = false;
+        $result['errors'][] = 'Authorization is required';
+        $result['status'] = 403;
+    } else {
+        $currentUser = $user->getByApiKey($api_key);
+        if ($currentUser['success']) {
+            $task = new Tasks($this->db);
+            $task->id = (int) $request->getAttribute('id');
+            $data = $request->getParsedBody();
+            $result = $task->validate($data);
+            if ($result['success']) {
+                $task->task = $data['task'];
+                $task->status = $data['status'];
+                $result = $task->update();
+            }
+        } else {
+            $result['success'] = false;
+            $result['errors'][] = 'Wrong API key';
+            $result['status'] = 401;
+        }
+    }
+
+    return $response->withJson($result, $result['status']);
 });
 
 $app->delete('/tasks/{id}', function (Request $request, Response $response, $args) {
-    //
+    $result = [
+        'success' => true,
+        'errors' => [],
+        'status' => 200,
+        'data' => []
+    ];
+
+    $user = new Users($this->db);
+    $api_key = (string) $request->getHeaderLine('Authorization');
+    if (empty($api_key)) {
+        $result['success'] = false;
+        $result['errors'][] = 'Authorization is required';
+        $result['status'] = 403;
+    } else {
+        $currentUser = $user->getByApiKey($api_key);
+        if ($currentUser['success']) {
+            $task = new Tasks($this->db);
+            $task->id = (int) $request->getAttribute('id');
+            $result = $task->delete();
+        } else {
+            $result['success'] = false;
+            $result['errors'][] = 'Wrong API key';
+            $result['status'] = 401;
+        }
+    }
+
+    return $response->withJson($result, $result['status']);
 });
 
 $app->run();

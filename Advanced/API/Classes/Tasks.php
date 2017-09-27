@@ -4,6 +4,7 @@ namespace Advanced\API\Classes;
 
 class Tasks extends AbstractDbEntity
 {
+    public $id;
     public $task;
     public $user_id;
     public $status;
@@ -13,14 +14,22 @@ class Tasks extends AbstractDbEntity
         $result = [
             'success' => true,
             'errors' => [],
-            'status' => 201
+            'status' => 201,
+            'data' => []
         ];
 
         $sql = "INSERT INTO `tasks`(`task`,`user_id`,`status`) 
                 VALUES ('$this->task',$this->user_id,1);";
         $query = $this->query($sql);
 
-        if (!$query) {
+        if ($query) {
+            $sql = "SELECT LAST_INSERT_ID() AS `id`;";
+            $query = $this->query($sql);
+            if (!empty($query[0]['id'])) {
+                $this->id = (int) $query[0]['id'];
+                $result = $this->read();
+            }
+        } else {
             $result['success'] = false;
             $result['errors'][] = 'Failed to create task';
             $result['status'] = 200;
@@ -29,19 +38,64 @@ class Tasks extends AbstractDbEntity
         return $result;
     }
 
-    public function read($id)
+    public function read()
     {
-        // TODO: Implement read() method.
+        $result = [
+            'success' => true,
+            'errors' => [],
+            'status' => 200,
+            'data' => []
+        ];
+
+        $sql = "SELECT * FROM `tasks` WHERE `id` = $this->id;";
+        $result['data'] = $this->query($sql);
+
+        return $result;
     }
 
-    public function update($id)
+    public function update()
     {
-        // TODO: Implement update() method.
+        $result = [
+            'success' => true,
+            'errors' => [],
+            'status' => 200,
+            'data' => []
+        ];
+
+        $sql = "UPDATE `tasks` 
+                SET `task`='$this->task',
+                    `status`=$this->status
+                WHERE `id` = $this->id;";
+        $query = $this->query($sql);
+
+        if (!$query) {
+            $result['success'] = false;
+            $result['errors'][] = 'Failed to update task';
+            $result['status'] = 200;
+        }
+
+        return $result;
     }
 
-    public function delete($id)
+    public function delete()
     {
-        // TODO: Implement delete() method.
+        $result = [
+            'success' => true,
+            'errors' => [],
+            'status' => 200,
+            'data' => []
+        ];
+
+        $sql = "DELETE FROM `tasks` WHERE `id` = $this->id;";
+        $query = $this->query($sql);
+
+        if (!$query) {
+            $result['success'] = false;
+            $result['errors'][] = 'Failed to delete task';
+            $result['status'] = 200;
+        }
+
+        return $result;
     }
 
     public function validate($data)
@@ -49,7 +103,8 @@ class Tasks extends AbstractDbEntity
         $validator = [
             'success' => true,
             'errors' => [],
-            'status' => 200
+            'status' => 200,
+            'data' => []
         ];
 
         return $validator;
@@ -60,7 +115,8 @@ class Tasks extends AbstractDbEntity
         $result = [
             'success' => true,
             'errors' => [],
-            'status' => 200
+            'status' => 200,
+            'data' => []
         ];
 
         $sql = "SELECT * FROM `tasks`;";

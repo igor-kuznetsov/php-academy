@@ -15,9 +15,9 @@ abstract class AbstractDbEntity
     }
 
     abstract public function create();
-    abstract public function read($id);
-    abstract public function update($id);
-    abstract public function delete($id);
+    abstract public function read();
+    abstract public function update();
+    abstract public function delete();
 
     protected function query($sql)
     {

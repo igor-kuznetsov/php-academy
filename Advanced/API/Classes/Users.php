@@ -6,6 +6,7 @@ class Users extends AbstractDbEntity
 {
     const HASH_SALT = 'xNd7Ksm4ah2v';
 
+    public $id;
     public $name;
     public $email;
     public $password;
@@ -16,7 +17,8 @@ class Users extends AbstractDbEntity
         $result = [
             'success' => true,
             'errors' => [],
-            'status' => 201
+            'status' => 201,
+            'data' => []
         ];
 
         if ($this->isNotExisted()) {
@@ -40,19 +42,65 @@ class Users extends AbstractDbEntity
         return $result;
     }
 
-    public function read($id)
+    public function read()
     {
-        // TODO: Implement read() method.
+        $result = [
+            'success' => true,
+            'errors' => [],
+            'status' => 200,
+            'data' => []
+        ];
+
+        $sql = "SELECT * FROM `users` WHERE `id` = $this->id;";
+        $result['data'] = $this->query($sql);
+
+        return $result;
     }
 
-    public function update($id)
+    public function update()
     {
-        return false;
+        $result = [
+            'success' => true,
+            'errors' => [],
+            'status' => 200,
+            'data' => []
+        ];
+
+        $sql = "UPDATE `users` 
+                SET `name`='$this->name',
+                    `email`='$this->email',
+                    `status`=$this->status
+                WHERE `id` = $this->id;";
+        $query = $this->query($sql);
+
+        if (!$query) {
+            $result['success'] = false;
+            $result['errors'][] = 'Failed to update user';
+            $result['status'] = 200;
+        }
+
+        return $result;
     }
 
-    public function delete($id)
+    public function delete()
     {
-        return false;
+        $result = [
+            'success' => true,
+            'errors' => [],
+            'status' => 200,
+            'data' => []
+        ];
+
+        $sql = "DELETE FROM `users` WHERE `id` = $this->id;";
+        $query = $this->query($sql);
+
+        if (!$query) {
+            $result['success'] = false;
+            $result['errors'][] = 'Failed to delete user';
+            $result['status'] = 200;
+        }
+
+        return $result;
     }
 
     public function validateRegister($data)
@@ -60,7 +108,8 @@ class Users extends AbstractDbEntity
         $validator = [
             'success' => true,
             'errors' => [],
-            'status' => 200
+            'status' => 200,
+            'data' => []
         ];
 
         return $validator;
