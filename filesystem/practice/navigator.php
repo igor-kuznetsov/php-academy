@@ -6,7 +6,7 @@ define('CURRENT_DIR', empty($_GET['dir']) ? __DIR__ : $_GET['dir']);
  * @param string $relative_path
  * @return string
  */
-function full_path(string $relative_path):string
+function full_path($relative_path)
 {
     return CURRENT_DIR . DIRECTORY_SEPARATOR . $relative_path;
 }
